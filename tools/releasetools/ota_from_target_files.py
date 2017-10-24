@@ -807,14 +807,6 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.ShowProgress(0.05, 5)
   script.WriteRawImage("/boot", "boot.img")
 
-  if block_based:
-    try:
-      common.ZipWriteStr(output_zip, "Magisk/Magisk.zip",
-                   ""+input_zip.read("SYSTEM/addon.d/Magisk.zip"))
-      script.FlashMagisk()
-    except KeyError:
-      print "Warning: Magisk.zip not available"
-
   script.ShowProgress(0.2, 10)
   device_specific.FullOTA_InstallEnd()
 
